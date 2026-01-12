@@ -1,0 +1,235 @@
+/* Styles spécifiques pour ProductList */
+
+.table-responsive {
+    position: relative;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.products-table th {
+    position: sticky;
+    top: 0;
+    background: #2c3e50;
+    z-index: 10;
+}
+
+/* Scrollbar personnalisée */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animation de chargement des lignes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.products-table tbody tr {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.products-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.products-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.products-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.products-table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.products-table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Tooltip pour les boutons d'action */
+.action-btn {
+    position: relative;
+}
+
+.action-btn::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 100;
+}
+
+.action-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Styles pour les cellules avec texte long */
+.product-description {
+    position: relative;
+}
+
+.product-description:hover::after {
+    content: attr(data-full);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #333;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    max-width: 400px;
+    z-index: 100;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Indicateur de tri amélioré */
+.products-table th.sortable {
+    position: relative;
+    padding-right: 2rem;
+}
+
+.products-table th.sortable::before {
+    content: '↕️';
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.products-table th.sortable:hover::before {
+    opacity: 1;
+}
+
+.products-table th.sort-asc::before {
+    content: '⬆️';
+    opacity: 1;
+}
+
+.products-table th.sort-desc::before {
+    content: '⬇️';
+    opacity: 1;
+}
+
+/* Badges de statut */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-available {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-unavailable {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-low {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Pagination (pour future implémentation) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.page-btn {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.page-btn:hover:not(.disabled) {
+    background: #e9ecef;
+}
+
+.page-btn.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.page-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Filtres (pour future implémentation) */
+.table-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.filter-input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.filter-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+}
+
+.filter-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.filter-btn:hover {
+    background: #2980b9;
+}

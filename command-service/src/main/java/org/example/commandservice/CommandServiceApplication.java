@@ -84,16 +84,16 @@ public class CommandServiceApplication {
 							commandService.createCommand(command3);
 						}
 
-						System.out.println("Dummy command data inserted successfully!");
+						System.out.println(" success!");
 					} else {
-						System.out.println("No products available from product-service. Skipping dummy command data insertion.");
+						System.out.println("No products available from product-service.");
 					}
 				} catch (Exception e) {
 					System.out.println("Error fetching products from product-service: " + e.getMessage());
-					System.out.println("Skipping dummy command data insertion.");
+					System.out.println("Skipping  command data insertion.");
 				}
 			} else {
-				System.out.println("Database already contains commands. Skipping dummy data insertion.");
+				System.out.println("Database already contains commands. ");
 			}
 		};
 	}
